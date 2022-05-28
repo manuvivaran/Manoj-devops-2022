@@ -1,24 +1,18 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-               sh ' echo STAGE 1: This is BUILD stage '
-                sleep 5
-            }
-        }
-        stage('Test') {
-            steps {
-               sh ' echo STAGE 2: This is TEST stage '
-                sleep 5
-            }
-        }
-        stage('Deploy') {
-            steps {
-               sh ' echo STAGE 3: This is Deploy stage '
-                sleep 5
-            }
-        }
-    }
-}
+pipeline{
+ agent any
+ environment{
+ name1="kalai"
+ name2='arasan'
+ }
+ stages{
+ stage('concatenate'){
 
+ steps{
+ script{
+ Name= name1 + name2
+ }
+ echo " concatenate $Name"
+ }
+ }
+ }
+}
